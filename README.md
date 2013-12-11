@@ -5,6 +5,11 @@ This is an extension of BootLeaf (https://github.com/bmcbride/bootleaf) by Bryan
 * Spatial data stored in SQL server
 * MVC data access layer
  
+To use
+*Back up the 'bootleaf' file in the bootleaf\database folder to your SQL Server
+*Point your connection string in your web.config file to that DB and you should be good to go!!
+
+
 Demo coming soon!!
 
 ###Original Release Notes 
