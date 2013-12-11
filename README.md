@@ -1,8 +1,13 @@
 BootLeaf
 ========
 
-Simple templates for building web mapping applications with Bootstrap 3 and Leaflet.
+This is an extension of BootLeaf by Bryan McBride - a simple template for building web mapping applications with Bootstrap 3 and Leaflet. The app has been refactored as a .net MVC 4 app, and has the following new features.
+* Spatial data stored in SQL server
+* MVC data access layer
+ 
+Demo coming soon!!
 
+###Original Release Notes 
 * Simple Demo: http://bmcbride.github.io/bootleaf/
 * Sidebar Demo: http://bmcbride.github.io/bootleaf/sidebar.html
 
