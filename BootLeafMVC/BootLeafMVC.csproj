@@ -195,6 +195,7 @@
     <Compile Include="Models\Theatre.cs" />
     <Compile Include="Models\TheatreFeature.cs" />
     <Compile Include="Models\TheatreGeoJson.cs" />
+    <Compile Include="Models\TheatreGeometry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

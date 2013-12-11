@@ -45,6 +45,7 @@ namespace BootLeafMVC.Controllers
 
         var theatreGeoJson = new TheatreGeoJson();
         var theatreFeatureList = new List<TheatreFeature>();
+        
 
         theatreGeoJson.type = "FeatureCollection";
         theatreGeoJson.features = theatreFeatureList;
@@ -52,22 +53,36 @@ namespace BootLeafMVC.Controllers
             foreach (var result in results)
             {
                 var theatreFeature = new TheatreFeature();
-
+                var theatre = new Theatre();
+                var theatreGeometry = new TheatreGeometry();
 
                 theatreFeature.type = "Feature";
                 theatreFeature.id = result.Id;
-                theatreFeature.properties = string.Format("{{\"NAME\":\"{0}\"}}", result.Name);
-                theatreFeature.geometry = string.Format("{{\"type\":\"Point\",\"coordinates\":[{0},{1}]}}", result.Longitude, result.Latitude);
+                //theatreFeature.properties = string.Format("{{\"NAME\":\"{0}\"}}", result.Name);
+
+                theatre.Name = result.Name;
+                theatre.Telephone = result.Telephone;
+                theatre.Url = result.Url;
+                theatre.Address = result.Address;
+                theatre.City = result.City;
+                theatre.Zipcode = result.Zipcode;
+
+                theatreFeature.properties = theatre;
+
+                theatreGeometry.type = "Point";
+                decimal[] geomArray = {result.Longitude, result.Latitude};
+                theatreGeometry.coordinates = geomArray;
+                theatreFeature.geometry = theatreGeometry;
 
                 theatreFeatureList.Add(theatreFeature);
 
             }
 
            
-            string json = JsonConvert.SerializeObject(theatreGeoJson, Formatting.Indented);
-
-         return null; 
-
+           // var json = JsonConvert.SerializeObject(theatreGeoJson, Formatting.Indented);
+            JsonResult theatres = Json(theatreGeoJson, JsonRequestBehavior.AllowGet);
+            return theatres;
+  
         }
 
     }
